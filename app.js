@@ -30,9 +30,20 @@ app.use(helmet());
 app.use(cors());
 app.use(xss());
 
+//Swagger docs
+const swaggerUI = require("swagger-ui-express");
+const YAML = require("yamljs");
+const swaggerDocs = YAML.load("./swagger.yaml");
+
 //connect db
 const connectDB = require("./db/connect");
 const auth = require("./middleware/authentication");
+
+app.use("/", (req, res) => {
+  res.send("<h1>Jobs API</h1><a href='/api-docs'>API documentation</a>");
+});
+
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 // routes
 app.use("/api/v1/auth", authRouter);
