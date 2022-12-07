@@ -23,3 +23,5 @@ Swagger UI
       required: true
       description: the job id
 ```
+
+![Screen Shot 2022-12-07 at 11 41 12 AM](https://user-images.githubusercontent.com/60779542/206117932-76f8fc33-1f19-4d51-a7c1-885e3d285b60.png)
